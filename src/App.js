@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import ColorDisplay from './components/ColorDisplay';
+import RenderOptions from './components/RenderOptions';
+
+const genRandomColors = (num) => {
+  const buffor = '0123456789ABCDEF';
+
+  const colors = [];
+
+  for (let i = 0; i < num; i++) {
+    let newColor = '#';
+    for (let i = 6; i > 0; i--) {
+      newColor += buffor[Math.floor(Math.random() * 16)];
+    }
+    colors.push(newColor);
+  }
+
+  const randomIndex = Math.floor(Math.random() * num);
+
+  return [colors, randomIndex];
+};
 
 function App() {
+  const [score, setScore] = useState([0]);
+  const colorData = genRandomColors(3);
+  const [colors, randomIndex] = colorData;
+  const increaseScore = () => {
+    setScore([Number(score) + 1]);
+  };
+  const resetScore = () => {
+    setScore([0]);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ColorDisplay text={score[0]} color={colors[randomIndex]} />
+      <RenderOptions
+        handleCorrectAns={increaseScore}
+        handleFalseAns={resetScore}
+        optionsArr={colors}
+        indexOfTrue={randomIndex}
+      />
+    </>
   );
 }
 
