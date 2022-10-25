@@ -21,6 +21,12 @@ const genRandomColors = (num) => {
 };
 
 function App() {
+  const divCss = {
+    width: 'max-content',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  };
   const [score, setScore] = useState([0]);
   const colorData = genRandomColors(3);
   const [colors, randomIndex] = colorData;
@@ -31,7 +37,7 @@ function App() {
     setScore([0]);
   };
   return (
-    <>
+    <div style={divCss}>
       <ColorDisplay text={score[0]} color={colors[randomIndex]} />
       <RenderOptions
         handleCorrectAns={increaseScore}
@@ -39,7 +45,7 @@ function App() {
         optionsArr={colors}
         indexOfTrue={randomIndex}
       />
-    </>
+    </div>
   );
 }
 

@@ -7,10 +7,10 @@ const RenderOptions = ({
   handleFalseAns,
 }) => {
   const divStyle = {
-    width: 'max-content',
+    width: '100%',
     padding: '.2em',
     display: 'flex',
-    gap: '.2em',
+    justifyContent: 'space-around',
   };
   const options = optionsArr.map((color, i) => {
     if (i === indexOfTrue)
