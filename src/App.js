@@ -22,6 +22,7 @@ const genRandomColors = (num) => {
 
 function App() {
   const divCss = {
+    marginInline: 'auto',
     width: 'max-content',
     display: 'flex',
     flexDirection: 'column',
@@ -38,6 +39,7 @@ function App() {
   };
   return (
     <div style={divCss}>
+      <h1 style={{ color: 'white' }}>Try to guess this color</h1>
       <ColorDisplay text={score[0]} color={colors[randomIndex]} />
       <RenderOptions
         handleCorrectAns={increaseScore}
