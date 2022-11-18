@@ -1,9 +1,9 @@
 const ColorDisplay = ({ text, color = 'red' }) => {
   const divCss = {
     position: 'relative',
-    border: '.2em solid black',
-    borderRadius: '.3em',
-    height: '15em',
+    border: '.1em solid black',
+    borderRadius: '.2em',
+    height: '10em',
     width: '20em',
     backgroundColor: color,
   };
