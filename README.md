@@ -1,1 +1,1 @@
-https://ornate-lamington-5347c3.netlify.app
+https://marcinwolder.github.io/color-guess/
