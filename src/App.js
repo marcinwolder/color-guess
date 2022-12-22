@@ -1,54 +1,61 @@
-import React, { useState } from 'react';
-import ColorDisplay from './components/ColorDisplay';
-import RenderOptions from './components/RenderOptions';
+import React from 'react';
+import './index.css';
+
+import useQuiz from './hooks/quiz';
+import { OptionButton } from './components/OptionButton';
 
 const genRandomColors = (num) => {
-  const buffor = '0123456789ABCDEF';
+	const bufor = '0123456789ABCDEF';
 
-  const colors = [];
+	const colors = [];
 
-  for (let i = 0; i < num; i++) {
-    let newColor = '#';
-    for (let i = 6; i > 0; i--) {
-      newColor += buffor[Math.floor(Math.random() * 16)];
-    }
-    colors.push(newColor);
-  }
+	for (let i = 0; i < num; i++) {
+		let newColor = '';
+		for (let i = 6; i > 0; i--) {
+			newColor += bufor[Math.floor(Math.random() * 16)];
+		}
+		colors.push(newColor);
+	}
 
-  const randomIndex = Math.floor(Math.random() * num);
+	const randomIndex = Math.floor(Math.random() * num);
 
-  return [colors, randomIndex];
+	return [colors, randomIndex];
 };
 
 function App() {
-  const divCss = {
-    marginInline: 'auto',
-    width: 'max-content',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  };
-  const [score, setScore] = useState([0]);
-  const colorData = genRandomColors(3);
-  const [colors, randomIndex] = colorData;
-  const increaseScore = () => {
-    setScore([Number(score) + 1]);
-  };
-  const resetScore = () => {
-    setScore([0]);
-  };
-  return (
-    <div style={divCss}>
-      <h1 style={{ color: 'white' }}>Try to guess this color</h1>
-      <ColorDisplay text={score[0]} color={colors[randomIndex]} />
-      <RenderOptions
-        handleCorrectAns={increaseScore}
-        handleFalseAns={resetScore}
-        optionsArr={colors}
-        indexOfTrue={randomIndex}
-      />
-    </div>
-  );
+	const [colors, random] = genRandomColors(3);
+
+	const [pickAnswer, score] = useQuiz(random);
+	return (
+		<div className='flex flex-col items-center gap-4 p-8'>
+			<p className='font-semibold text-xl'>Guess the color challenge:</p>
+			<div
+				style={{ backgroundColor: `#${colors[random]}` }}
+				className='h-32 w-72 bg-zinc-800 border-2 border-stone-800 shadow-lg'
+			/>
+			<div className='flex gap-2'>
+				<OptionButton
+					label={colors[0]}
+					onClick={() => {
+						pickAnswer(0);
+					}}
+				/>
+				<OptionButton
+					label={colors[1]}
+					onClick={() => {
+						pickAnswer(1);
+					}}
+				/>
+				<OptionButton
+					label={colors[2]}
+					onClick={() => {
+						pickAnswer(2);
+					}}
+				/>
+			</div>
+			<p>Current score: {score}</p>
+		</div>
+	);
 }
 
 export default App;
