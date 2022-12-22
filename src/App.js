@@ -28,12 +28,12 @@ function App() {
 	const [pickAnswer, score] = useQuiz(random);
 	return (
 		<div className='flex flex-col items-center gap-4 p-8'>
-			<p className='font-semibold text-xl'>Guess the color challenge:</p>
+			<p className='font-semibold text-6xl my-10'>Guess the color challenge:</p>
 			<div
 				style={{ backgroundColor: `#${colors[random]}` }}
-				className='h-32 w-72 bg-zinc-800 border-2 border-stone-800 shadow-lg'
+				className='h-64 w-1/2 bg-zinc-800 border-2 border-stone-800 shadow-lg'
 			/>
-			<div className='flex gap-2'>
+			<div className='flex w-full gap-2'>
 				<OptionButton
 					label={colors[0]}
 					onClick={() => {
@@ -53,7 +53,7 @@ function App() {
 					}}
 				/>
 			</div>
-			<p>Current score: {score}</p>
+			<p className='text-3xl'>Current score: {score}</p>
 		</div>
 	);
 }
