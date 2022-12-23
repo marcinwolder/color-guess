@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/color-guess/static/css/main.d35f8517.css",
-    "main.js": "/color-guess/static/js/main.7d94075a.js",
+    "main.css": "/color-guess/static/css/main.75636b58.css",
+    "main.js": "/color-guess/static/js/main.5bfc3b9a.js",
     "index.html": "/color-guess/index.html",
-    "main.d35f8517.css.map": "/color-guess/static/css/main.d35f8517.css.map",
-    "main.7d94075a.js.map": "/color-guess/static/js/main.7d94075a.js.map"
+    "main.75636b58.css.map": "/color-guess/static/css/main.75636b58.css.map",
+    "main.5bfc3b9a.js.map": "/color-guess/static/js/main.5bfc3b9a.js.map"
   },
   "entrypoints": [
-    "static/css/main.d35f8517.css",
-    "static/js/main.7d94075a.js"
+    "static/css/main.75636b58.css",
+    "static/js/main.5bfc3b9a.js"
   ]
 }
