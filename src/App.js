@@ -33,7 +33,7 @@ function App() {
 				style={{ backgroundColor: `#${colors[random]}` }}
 				className='h-64 w-1/2 bg-zinc-800 border-2 border-stone-800 shadow-lg'
 			/>
-			<div className='flex w-full gap-2'>
+			<div className='flex flex-col items-center lg:flex-row w-full gap-2'>
 				<OptionButton
 					label={colors[0]}
 					onClick={() => {
