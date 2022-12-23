@@ -31,7 +31,7 @@ function App() {
 			<p className='font-semibold text-6xl my-10'>Guess the color challenge:</p>
 			<div
 				style={{ backgroundColor: `#${colors[random]}` }}
-				className='h-64 w-1/2 bg-zinc-800 border-2 border-stone-800 shadow-lg'
+				className='lg:h-64 h-96 lg:w-1/2 w-full mb-12 lg:mb-0 bg-zinc-800 border-2 border-stone-800 shadow-lg'
 			/>
 			<div className='flex flex-col items-center lg:flex-row w-full gap-2'>
 				<OptionButton
@@ -53,7 +53,7 @@ function App() {
 					}}
 				/>
 			</div>
-			<p className='text-3xl'>Current score: {score}</p>
+			<p className='text-5xl mt-8 lg:text-3xl'>Current score: {score}</p>
 		</div>
 	);
 }
